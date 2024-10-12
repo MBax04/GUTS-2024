@@ -20,6 +20,10 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (Vector3.Distance(patrolPoints[targetPoint].position,GameObject.FindGameObjectWithTag("Player").transform.position)<10){
             transform.position = Vector3.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, speed* Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, speed* Time.deltaTime);
+           // transform.position = Vector3.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, speed* Time.deltaTime);
+
+           // }
         }
         transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed* Time.deltaTime);
 
