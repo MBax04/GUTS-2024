@@ -53,3 +53,12 @@ TagManager:
   - name: Deco
     uniqueID: 2418167969
     locked: 0
+  - name: Player
+    uniqueID: 2624171923
+    locked: 0
+  - name: Wall
+    uniqueID: 175195629
+    locked: 0
+  - name: Deco
+    uniqueID: 2418167969
+    locked: 0
