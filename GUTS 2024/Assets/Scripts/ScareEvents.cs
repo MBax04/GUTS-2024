@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class ScareEvents : MonoBehaviour
 {
     (string eventType, double eventProbability) [] eventProbabilities = new [] { 
-        ("TEXT", 0.5),
+        ("TEXT", 0.20),
+        ("SOUND", 0.3),
+        ("PHONE", 0.5),
         ("LIGHTING_INTENSE", 0.75),
         ("LIGHTING_OFF", 1)
     };
     string[] scaryStrings = {"THEY LIVE IN THE WALLS", "I'M WATCHING YOU", "BOOO", "THERE'S NOTHING BUT DEATH", "blood"};
+    string[] scarySounds = {"scream", "scream2", "modem"};
     float nextEventDue = -1;
     float disableEventInProgressAt = -1;
     string eventInProgress = "NONE";
@@ -73,6 +77,12 @@ public class ScareEvents : MonoBehaviour
                     playerLight.intensity = 0;
                 }
                 disableEventInProgressAt = Time.realtimeSinceStartup + Random.Range(3f, 15.0f);
+            } else if (eventType == "SOUND") {
+                AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("UI Assets/" + scarySounds[Random.Range(0, scarySounds.Length)]), Camera.main.transform.position);
+                updateTimer();
+            } else if (eventType == "PHONE") {
+                AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("UI Assets/phone"), Camera.main.transform.position);
+                updateTimer();
             }
         }
     }
