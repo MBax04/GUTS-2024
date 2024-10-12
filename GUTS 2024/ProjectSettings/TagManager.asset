@@ -8,6 +8,7 @@ TagManager:
   - Treasure Chest
   - Gem
   - Pit
+  - Treasure Inventory Canvas
   layers:
   - Default
   - TransparentFX
