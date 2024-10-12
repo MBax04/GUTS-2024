@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Health Potion
   - Treasure
+  - Treasure Chest
+  - Gem
   layers:
   - Default
   - TransparentFX
@@ -51,6 +53,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2154837763
+    locked: 0
   - name: Wall
     uniqueID: 175195629
     locked: 0
@@ -65,4 +68,7 @@ TagManager:
     locked: 0
   - name: Deco
     uniqueID: 2418167969
+    locked: 0
+  - name: UI
+    uniqueID: 3286561913
     locked: 0

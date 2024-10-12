@@ -13,7 +13,7 @@ public class ScareEvents : MonoBehaviour
     public Canvas textScareCanvas;
     public TMP_Text scareTextObj;
     void updateTimer() {
-        nextEventDue = Time.realtimeSinceStartup + Random.Range(5f, 10.0f);
+        nextEventDue = Time.realtimeSinceStartup + Random.Range(60f, 300.0f);
         Debug.Log("Set for: " + nextEventDue.ToString());
     }
     // Start is called before the first frame update
