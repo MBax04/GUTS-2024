@@ -34,6 +34,14 @@ public class PlayerMovement : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pit"))
+        {
+            this.transform.position = new Vector3(0, 0, 0);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
