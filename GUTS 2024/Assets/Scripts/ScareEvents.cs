@@ -39,12 +39,11 @@ public class ScareEvents : MonoBehaviour
         if (eventInProgress != "NONE") {
             if (disableEventInProgressAt != -1 && Time.realtimeSinceStartup >= disableEventInProgressAt) {
                 if (eventInProgress == "TEXT") {
-                    playerLight.pointLightInnerRadius = 3;
                     textScareCanvas.enabled = false;
                     updateTimer();
                     disableEventInProgressAt = -1;
                     eventInProgress = "NONE";
-                } else if (eventInProgress.StartsWith("LIGHTING_")) {
+                } else if (eventInProgress.StartsWith("LIGHTING_") && playerLight != null) {
                     playerLight.pointLightInnerRadius = 3;
                     playerLight.intensity = 1;
                     updateTimer();
@@ -67,7 +66,7 @@ public class ScareEvents : MonoBehaviour
                 disableEventInProgressAt = Time.realtimeSinceStartup + Random.Range(1f, 5.0f);
                 scareTextObj.SetText(scaryStrings[Random.Range(0, scaryStrings.Length)]);
                 textScareCanvas.enabled = true;
-            } else if (eventType.StartsWith("LIGHTING_")) {
+            } else if (eventType.StartsWith("LIGHTING_") && playerLight != null) {
                 eventInProgress = eventType;
                 if (eventType == "LIGHTING_INTENSE") {
                     playerLight.pointLightInnerRadius = 8;

@@ -38,9 +38,6 @@ public class Task{
             texture = Resources.Load<Texture>("UI Assets/tick");
         else 
             texture = Resources.Load<Texture>("UI Assets/in-progress");
-
-        Debug.Log(texture);
-        Debug.Log(indicator.texture);
         
         indicator.texture = texture;
     }
