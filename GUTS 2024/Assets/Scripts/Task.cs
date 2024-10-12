@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Task{
     public const string TASK_TEXT_TEMPLATE = "[     ]    ";
@@ -7,18 +8,20 @@ public class Task{
     public float completedness;
     TaskList taskList;
     public TMP_Text taskTextObj;
-    public SpriteRenderer indicator;
+    public RawImage indicator;
 
     public Task(string taskName, float completedness){
         this.taskName = taskName;
         this.completedness = completedness;
     }
 
-    public void completeTask(Task task){
-        task.setCompletedness(1);
+    public void completeTask(){
+        this.setCompletedness(1);
     }
 
     public void setCompletedness(float completedness){
+        this.completedness = completedness;
+        updateIndicator();
     }
 
     public string getTaskName(){
@@ -30,10 +33,16 @@ public class Task{
     }
 
     public void updateIndicator() {
+        Texture texture;
         if (completedness >= 1)
-            indicator.sprite = Resources.Load("UI Assets/tick", typeof(Sprite)) as Sprite;
+            texture = Resources.Load<Texture>("UI Assets/tick");
         else 
-            indicator.sprite = Resources.Load("UI Assets/in-progress", typeof(Sprite)) as Sprite;
+            texture = Resources.Load<Texture>("UI Assets/in-progress");
+
+        Debug.Log(texture);
+        Debug.Log(indicator.texture);
+        
+        indicator.texture = texture;
     }
 
     public void updateText() {
