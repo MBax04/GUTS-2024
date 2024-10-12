@@ -13975,6 +13975,11 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3.85, y: 5.12}
   m_Direction: 0
+--- !u!1 &3816517776950433100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2883985547496622297, guid: 5bb22356fb14bc540a75ee0a12f1f26f, type: 3}
+  m_PrefabInstance: {fileID: 6132748168500214729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6132748168500214729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14038,7 +14043,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2883985547496622297, guid: 5bb22356fb14bc540a75ee0a12f1f26f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8568698845941912762}
   m_SourcePrefab: {fileID: 100100000, guid: 5bb22356fb14bc540a75ee0a12f1f26f, type: 3}
 --- !u!1001 &6454805231061244649
 PrefabInstance:
@@ -14369,6 +14377,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3.56, y: 5.12}
   m_Direction: 0
+--- !u!114 &8568698845941912762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816517776950433100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adbdbd3e0a072be429958d1c2ff0f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9054445299410580149
 PrefabInstance:
   m_ObjectHideFlags: 0
