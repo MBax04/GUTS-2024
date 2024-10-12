@@ -19,7 +19,7 @@ public class EnemyPatrol : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed* Time.deltaTime);
-        if (Vector3.Distance(patrolPoints[targetPoint].position, transform.position)<2){
+        if (Vector3.Distance(patrolPoints[targetPoint].position, transform.position)<=0.2){
             increaseTargetInt();
         }
     }
