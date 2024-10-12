@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ScareEvents : MonoBehaviour
 {
+    (string eventType, double eventProbability) [] eventProbabilities = new [] { 
+        ("TEXT", 0.5),
+        ("LIGHTING_INTENSE", 0.75),
+        ("LIGHTING_OFF", 1)
+    };
     string[] scaryStrings = {"THEY LIVE IN THE WALLS", "I'M WATCHING YOU", "BOOO", "THERE'S NOTHING BUT DEATH", "blood"};
     float nextEventDue = -1;
-    float disableScareTextAt = -1;
-    bool eventInProgress = false;
+    float disableEventInProgressAt = -1;
+    string eventInProgress = "NONE";
     public Canvas textScareCanvas;
     public TMP_Text scareTextObj;
+    public Light2D playerLight;
     void updateTimer() {
-        nextEventDue = Time.realtimeSinceStartup + Random.Range(60f, 300.0f);
+        nextEventDue = Time.realtimeSinceStartup + Random.Range(10f, 20.0f);
         Debug.Log("Set for: " + nextEventDue.ToString());
     }
     // Start is called before the first frame update
@@ -25,19 +32,48 @@ public class ScareEvents : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (disableScareTextAt != -1 && Time.realtimeSinceStartup >= disableScareTextAt) {
-            textScareCanvas.enabled = false;
-            updateTimer();
-            disableScareTextAt = -1;
-            Debug.Log("off!");
-            eventInProgress = false;
-        }
-        if (nextEventDue != -1 && Time.realtimeSinceStartup > nextEventDue && !eventInProgress) {
-            eventInProgress = true;
-            Debug.Log("on!");
-            disableScareTextAt = Time.realtimeSinceStartup + Random.Range(1f, 5.0f);
-            scareTextObj.SetText(scaryStrings[Random.Range(0, scaryStrings.Length)]);
-            textScareCanvas.enabled = true;
+        if (eventInProgress != "NONE") {
+            if (disableEventInProgressAt != -1 && Time.realtimeSinceStartup >= disableEventInProgressAt) {
+                if (eventInProgress == "TEXT") {
+                    playerLight.pointLightInnerRadius = 3;
+                    textScareCanvas.enabled = false;
+                    updateTimer();
+                    disableEventInProgressAt = -1;
+                    eventInProgress = "NONE";
+                } else if (eventInProgress.StartsWith("LIGHTING_")) {
+                    playerLight.pointLightInnerRadius = 3;
+                    playerLight.intensity = 1;
+                    updateTimer();
+                    disableEventInProgressAt = -1;
+                    eventInProgress = "NONE";
+                }
+            }
+        } else if (nextEventDue != -1 && Time.realtimeSinceStartup > nextEventDue) {
+            float randomEventProbability = Random.Range(0f, 1f);
+            string eventType = "NONE";
+            foreach ((string eventType, double eventProbability) eventProbability in eventProbabilities) {
+                if (randomEventProbability <= eventProbability.eventProbability) {
+                    eventType = eventProbability.eventType;
+                    break;
+                }
+            }
+
+            if (eventType == "TEXT") {
+                eventInProgress = eventType;
+                disableEventInProgressAt = Time.realtimeSinceStartup + Random.Range(1f, 5.0f);
+                scareTextObj.SetText(scaryStrings[Random.Range(0, scaryStrings.Length)]);
+                textScareCanvas.enabled = true;
+            } else if (eventType.StartsWith("LIGHTING_")) {
+                eventInProgress = eventType;
+                if (eventType == "LIGHTING_INTENSE") {
+                    playerLight.pointLightInnerRadius = 8;
+                    playerLight.intensity = 65;
+                } else if (eventType == "LIGHTING_OFF") {
+                    playerLight.pointLightInnerRadius = 0;
+                    playerLight.intensity = 0;
+                }
+                disableEventInProgressAt = Time.realtimeSinceStartup + Random.Range(3f, 15.0f);
+            }
         }
     }
 }
