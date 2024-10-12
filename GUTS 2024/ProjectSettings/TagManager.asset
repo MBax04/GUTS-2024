@@ -5,10 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Health Potion
-  - Treasure
   - Treasure Chest
   - Gem
   - Pit
+  - Treasure Inventory Canvas
   layers:
   - Default
   - TransparentFX

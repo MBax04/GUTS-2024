@@ -11,7 +11,8 @@ public class TreasureInventory : MonoBehaviour
     public TMP_Text inventory1text;
     public TMP_Text inventory2text;
     public TMP_Text inventory3text;
-    
+    public TMP_Text inventory4text;
+
     private TMP_Text[] inventoryTexts;
 
     public TMP_Text getNextInventoryTextObj() {
@@ -21,21 +22,18 @@ public class TreasureInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TMP_Text[] _inventoryTexts = {inventory1text, inventory2text, inventory3text};
+        TMP_Text[] _inventoryTexts = {inventory1text, inventory2text, inventory3text, inventory4text};
         inventoryTexts = _inventoryTexts;
 
         // Initalise treasure types each with 0 quantity collected
-        inventory.Add("bones", new TreasureInventoryItem("Bones", 20, getNextInventoryTextObj()));
-        inventory.Add("gold", new TreasureInventoryItem("Gold", 50, getNextInventoryTextObj()));
-        inventory.Add("fossil", new TreasureInventoryItem("Fossil", 10, getNextInventoryTextObj()));
-    
-        // Test values
-        inventory["bones"].setQuantity(5);
+        inventory.Add("TreasureChest", new TreasureInventoryItem("Treasure Chest", 10, getNextInventoryTextObj()));
+        inventory.Add("GreenGem", new TreasureInventoryItem("Green Gem", 1, getNextInventoryTextObj()));
+        inventory.Add("BlueGem", new TreasureInventoryItem("Blue Gem", 50, getNextInventoryTextObj()));
+        inventory.Add("RedGem", new TreasureInventoryItem("Red Gem", 10, getNextInventoryTextObj()));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateList(string objectName)
     {
-        
+        inventory[objectName].setQuantity(inventory[objectName].treasureTypeQuantity + 1);
     }
 }

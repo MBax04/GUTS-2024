@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1672873741097244560}
   - component: {fileID: 7937112626610535125}
-  - component: {fileID: 3860962711023318676}
+  - component: {fileID: 8409565084649093866}
   m_Layer: 0
   m_Name: ChestOpen
   m_TagString: Treasure Chest
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &3860962711023318676
-CircleCollider2D:
+--- !u!61 &8409565084649093866
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -117,6 +117,16 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16, y: 16}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 2.56
+  m_Size: {x: 12, y: 9}
+  m_EdgeRadius: 0
