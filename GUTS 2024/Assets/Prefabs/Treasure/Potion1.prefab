@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567694248314879666}
   - component: {fileID: 4330652196595660064}
-  - component: {fileID: 5868704142817028172}
+  - component: {fileID: 3082827539795116797}
   m_Layer: 0
   m_Name: Potion1
   m_TagString: Health Potion
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5868704142817028172
-CircleCollider2D:
+--- !u!70 &3082827539795116797
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,5 +118,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.18
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
