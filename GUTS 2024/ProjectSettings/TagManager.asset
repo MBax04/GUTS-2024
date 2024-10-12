@@ -38,15 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Pit
+    uniqueID: 1553107715
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Deco
-    uniqueID: 2418167969
+  - name: Floor
+    uniqueID: 2483493393
     locked: 0
   - name: Wall
     uniqueID: 175195629
     locked: 0
-  - name: Floor
-    uniqueID: 2483493393
+  - name: Deco
+    uniqueID: 2418167969
     locked: 0
