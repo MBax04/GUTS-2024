@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Health Potion
+  - Treasure
   layers:
   - Default
   - TransparentFX
@@ -47,6 +49,8 @@ TagManager:
   - name: Floor
     uniqueID: 2483493393
     locked: 0
+  - name: Player
+    uniqueID: 2154837763
   - name: Wall
     uniqueID: 175195629
     locked: 0
