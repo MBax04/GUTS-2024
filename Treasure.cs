@@ -10,7 +10,7 @@ public class Treasure : MapEntity{
         this.isCollected = false;
     }
 
-    public void setCollected(bool value)
+    public void setCollected(bool value, Player player)
     {
         this.isCollected = value;
         if (isCollected)
@@ -18,6 +18,7 @@ public class Treasure : MapEntity{
             this.isVisibleOnMap = false;
             if (inventoryItem != null){
                 // add to players list of collected items 
+                player.treasure.add(this);
             }
 
         }
