@@ -8,6 +8,7 @@ TagManager:
   - Treasure
   - Treasure Chest
   - Gem
+  - Pit
   layers:
   - Default
   - TransparentFX
@@ -46,31 +47,25 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Pit
-    uniqueID: 1553107715
+    uniqueID: 1033823271
     locked: 0
   - name: Floor
-    uniqueID: 2483493393
+    uniqueID: 720246081
+    locked: 0
+  - name: Walls
+    uniqueID: 2471614437
+    locked: 0
+  - name: Deco Under
+    uniqueID: 987155317
     locked: 0
   - name: Player
-    uniqueID: 2154837763
+    uniqueID: 185045347
     locked: 0
-  - name: Wall
-    uniqueID: 175195629
-    locked: 0
-  - name: Deco
-    uniqueID: 2418167969
-    locked: 0
-  - name: Player
-    uniqueID: 2624171923
-    locked: 0
-  - name: Wall
-    uniqueID: 175195629
-    locked: 0
-  - name: Deco
-    uniqueID: 2418167969
+  - name: Deco Over
+    uniqueID: 2306482099
     locked: 0
   - name: UI
-    uniqueID: 3286561913
+    uniqueID: 2920834697
     locked: 0
   - name: UI2
     uniqueID: 248878921
