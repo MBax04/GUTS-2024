@@ -8,6 +8,7 @@ TagManager:
   - Treasure
   - Treasure Chest
   - Gem
+  - Pit
   layers:
   - Default
   - TransparentFX
