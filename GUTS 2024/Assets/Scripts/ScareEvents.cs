@@ -25,7 +25,7 @@ public class ScareEvents : MonoBehaviour
     public Light2D playerLight;
     void updateTimer() {
         nextEventDue = Time.realtimeSinceStartup + Random.Range(30f, 150.0f);
-        Debug.Log("Set for: " + nextEventDue.ToString());
+        Debug.Log("Next scare event set for: " + nextEventDue.ToString());
     }
     // Start is called before the first frame update
     void Start()
