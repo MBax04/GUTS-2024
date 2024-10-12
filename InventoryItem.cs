@@ -13,7 +13,13 @@ public abstract class InventoryItem
         this.sprite = sprite;
     }
 
-    public abstract string GetName();
+    public string GetName() 
+    {
+        return this.name;
+    }
 
-    public abstract Character GetOwner();
+    public Character GetOwner() 
+    {
+        return this.owner;
+    };
 }

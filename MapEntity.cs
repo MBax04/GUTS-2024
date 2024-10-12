@@ -15,9 +15,18 @@ public abstract class MapEntity
         this.y = y;
     }
 
-    public abstract string getName();
+    public string getName() 
+    {
+        return this.name;
+    }
 
-    public abstract int getX();
+    public abstract int getX() 
+    {
+        return this.x;
+    }
 
-    public abstract int getY();
+    public abstract int getY() 
+    {
+        return this.y;
+    }
 }
