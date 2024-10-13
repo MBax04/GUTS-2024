@@ -7,7 +7,7 @@ using UnityEngine;
 public class TreasureInventory : MonoBehaviour
 {
     public Dictionary<String, TreasureInventoryItem> inventory = new Dictionary<String, TreasureInventoryItem>();
-
+    public int level = 1;
     public TMP_Text inventory1text;
     public TMP_Text inventory2text;
     public TMP_Text inventory3text;
@@ -25,15 +25,51 @@ public class TreasureInventory : MonoBehaviour
         TMP_Text[] _inventoryTexts = {inventory1text, inventory2text, inventory3text, inventory4text};
         inventoryTexts = _inventoryTexts;
 
+        foreach (TMP_Text text in inventoryTexts)
+            text.SetText("");
+
         // Initalise treasure types each with 0 quantity collected
-        inventory.Add("TreasureChest", new TreasureInventoryItem("Treasure Chest", 10, getNextInventoryTextObj()));
-        inventory.Add("GreenGem", new TreasureInventoryItem("Green Gem", 1, getNextInventoryTextObj()));
-        inventory.Add("BlueGem", new TreasureInventoryItem("Blue Gem", 50, getNextInventoryTextObj()));
-        inventory.Add("RedGem", new TreasureInventoryItem("Red Gem", 10, getNextInventoryTextObj()));
+        if (level == 1) {
+            inventory.Add("TreasureChest", new TreasureInventoryItem("Treasure Chest", 5, getNextInventoryTextObj()));
+            inventory.Add("OrangeGem", new TreasureInventoryItem("Orange Gem", 5, getNextInventoryTextObj()));
+            inventory.Add("PurpleGem", new TreasureInventoryItem("Purple Gem", 5, getNextInventoryTextObj()));
+            inventory.Add("RedGem", new TreasureInventoryItem("Red Gem", 5, getNextInventoryTextObj()));
+        } else if (level == 2) {} 
+        else {
+            inventory.Add("TreasureChest", new TreasureInventoryItem("Treasure Chest", 10, getNextInventoryTextObj()));
+            inventory.Add("GreenGem", new TreasureInventoryItem("Green Gem", 1, getNextInventoryTextObj()));
+            inventory.Add("BlueGem", new TreasureInventoryItem("Blue Gem", 50, getNextInventoryTextObj()));
+            inventory.Add("RedGem", new TreasureInventoryItem("Red Gem", 10, getNextInventoryTextObj()));
+        }
     }
 
+   
     public void UpdateList(string objectName)
     {
-        inventory[objectName].setQuantity(inventory[objectName].treasureTypeQuantity + 1);
+        //untestes - maybe work maybe not so much
+        if (inventory["TreasureChest"].treasureTypeQuantity == 10)
+        {
+            Debug.Log("Go to next level, max items found");
+        }
+        TreasureInventoryItem item = inventory[objectName];
+        if (item.treasureTypeQuantity < item.maximumQuantity)
+        {
+            item.setQuantity(item.treasureTypeQuantity + 1);
+
+            Task inventoryTask = GameObject.Find("TaskListCanvas").GetComponent<TaskList>().tasks[0];
+
+            int inventoryMax = 0;
+            int inventoryContents = 0;
+            foreach ((String key, TreasureInventoryItem x) in inventory)
+            {
+                inventoryMax += x.maximumQuantity;
+                inventoryContents += x.treasureTypeQuantity;
+            }
+
+            if (inventoryMax > 0)
+            {
+                inventoryTask.setCompletedness((float)inventoryContents / (float)inventoryMax);
+            }
+        }
     }
 }

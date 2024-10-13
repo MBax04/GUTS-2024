@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Attributes")]
     private Rigidbody2D rb;
+    public SpriteRenderer spriteRenderer;
 
     [Header("Movement")]
     [SerializeField] private float speed;
@@ -26,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float frictionAmount;
     private float frictionX;
     private float frictionY;
+
+    public Sprite spriteUp;
+    public Sprite spriteDown;
+    public Sprite spriteLeft;
+    public Sprite spriteRight;
 
     // Start is called before the first frame update
     void Start()
@@ -50,22 +56,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 MoveUp();
             }
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 MoveLeft();
             }
 
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 MoveDown();
             }
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 MoveRight();
             }
@@ -76,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Friction();
+        FindDirection();
     }
 
 
@@ -165,5 +172,31 @@ public class PlayerMovement : MonoBehaviour
         frictionY = Mathf.Min(Mathf.Abs(rb.velocity.y), frictionAmount);
         frictionY *= Mathf.Sign(rb.velocity.y);
         rb.AddForce(Vector2.up * -frictionY, ForceMode2D.Impulse);
+    }
+
+    private void FindDirection()
+    {
+        if (Math.Abs(rb.velocity.x) > Math.Abs(rb.velocity.y))
+        {
+            if (rb.velocity.x > 0)
+            {
+                spriteRenderer.sprite = spriteRight;
+            }
+            else
+            {
+                spriteRenderer.sprite = spriteLeft;
+            }
+        }
+        else
+        {
+            if (rb.velocity.y < 0)
+            {
+                spriteRenderer.sprite = spriteDown;
+            }
+            else
+            {
+                spriteRenderer.sprite = spriteUp;
+            }
+        }
     }
 }

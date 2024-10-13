@@ -22,6 +22,7 @@ public class Task{
     public void setCompletedness(float completedness){
         this.completedness = completedness;
         updateIndicator();
+        updateText();
     }
 
     public string getTaskName(){

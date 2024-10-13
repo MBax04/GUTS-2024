@@ -1,0 +1,7 @@
+top Left H: -27.58246,8266937
+Top right V: 24.2, 30.8
+Middle Double Hall: -9.7, -27.3
+Left mid V: -88.2, -44.4
+left mid H: -33.8, -53.5
+Center V: 11, -110.6
+bottom right V: 65.2, -51.8
