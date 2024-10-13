@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour
@@ -89,6 +90,6 @@ public class PlayerCombat : MonoBehaviour
 
     public void Die()
     {
-        this.transform.position = new Vector3(0,0,0);
+        SceneManager.LoadScene(2);
     }
 }
