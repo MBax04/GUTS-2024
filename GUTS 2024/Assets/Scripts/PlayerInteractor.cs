@@ -27,20 +27,28 @@ public class PlayerInteractor : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pit"))
         {
-            Death();
+            this.GetComponent<PlayerCombat>().Die();
         }
         if (collision.gameObject.CompareTag("Treasure Chest"))
         {
+            collision.gameObject.SetActive(false);
             treasureInventoryScript.UpdateList("TreasureChest");
         }
         if (collision.gameObject.CompareTag("Gem"))
         {
             ObjectName = collision.gameObject.name;
-            treasureInventoryScript.UpdateList(ObjectName);
+            collision.gameObject.SetActive(false);
+            treasureInventoryScript.UpdateList(ObjectName.Split(" ")[0]);
         }
         if (collision.gameObject.CompareTag("Health Potion"))
         {
-            Debug.Log("Health Potion");
+            collision.gameObject.SetActive(false);
+            this.GetComponent<PlayerCombat>().Heal();
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<EnemyPatrol>().setHuntingPlayer(false);
+            this.GetComponent<PlayerCombat>().LoseLive();
         }
         if (collision.gameObject.CompareTag("Teleport"))
         {
