@@ -35,7 +35,7 @@ public class PlayerInteractor : MonoBehaviour
         if (collision.gameObject.CompareTag("Gem"))
         {
             ObjectName = collision.gameObject.name;
-            treasureInventoryScript.UpdateList(ObjectName);
+            treasureInventoryScript.UpdateList(ObjectName.Split(" ")[0]);
         }
         if (collision.gameObject.CompareTag("Health Potion"))
         {
