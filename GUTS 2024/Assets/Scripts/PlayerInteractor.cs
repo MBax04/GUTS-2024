@@ -11,6 +11,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private GameObject treasureInventory;
     private TreasureInventory treasureInventoryScript;
+    private Vector3 tempVec;
 
 
     // Start is called before the first frame update
@@ -43,26 +44,28 @@ public class PlayerInteractor : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Teleport"))
         {
-            if (transform.position == (-27,88266937,0)){
-                transform.position = new Vector3(-9.7, -27.3, 0);
-            };
-            else if (transform.position == (24.2,30.8,0)){
-                transform.position = new Vector3(-9.7,-27.3,0);
+            if (transform.position == new Vector3(-27,88266937,0)){
+                tempVec = new Vector3(-9, -27, 0);
+                transform.position = tempVec;
             }
-            else if (transform.position == (-9.7,-27.3,0)){
+            else if (transform.position == new Vector3(24,30,0)){
+                tempVec = new Vector3(-9, -27, 0);
+                transform.position = tempVec;
+            }
+            else if (transform.position == new Vector3(-9,-27,0)){
                 transform.position = new Vector3(-27,8266937,0);
             }
-            else if (transform.position == (-88,-44,0)){
-                transform.position = new Vector3(11,110.6,0);
+            else if (transform.position == new Vector3(-88,-44,0)){
+                transform.position = new Vector3(11,110,0);
             }
-            else if (transform.position == (-33.8,-53.5,0)){
-                transform.position = new Vector3(65.2,-51.8,0);            
+            else if (transform.position == new Vector3(-33,-53,0)){
+                transform.position = new Vector3(65,-51,0);            
             }
-            else if (transform.position == (11,-110.6,0)){
-                transform.position = new Vector3(-33.8,-53,5,0);
+            else if (transform.position == new Vector3(11,-110,0)){
+                transform.position = new Vector3(-33,-53,0);
             }
-            else if (transform.position == (65.2,-51.8,0)){
-                transform.position = new Vector3(11,-110.6,0);
+            else if (transform.position == new Vector3(65,-51,0)){
+                transform.position = new Vector3(11,-110,0);
             }
             Debug.Log("Teleport");
         }
