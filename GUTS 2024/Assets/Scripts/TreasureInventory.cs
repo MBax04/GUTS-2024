@@ -34,7 +34,12 @@ public class TreasureInventory : MonoBehaviour
             inventory.Add("OrangeGem", new TreasureInventoryItem("Orange Gem", 5, getNextInventoryTextObj()));
             inventory.Add("PurpleGem", new TreasureInventoryItem("Purple Gem", 5, getNextInventoryTextObj()));
             inventory.Add("RedGem", new TreasureInventoryItem("Red Gem", 5, getNextInventoryTextObj()));
-        } else if (level == 2) {} 
+        } else if (level == 2) {
+            inventory.Add("TreasureChest", new TreasureInventoryItem("Treasure Chest", 5, getNextInventoryTextObj()));
+            inventory.Add("GreenGem", new TreasureInventoryItem("Green Gem", 3, getNextInventoryTextObj()));
+            inventory.Add("BlueGem", new TreasureInventoryItem("Blue Gem", 5, getNextInventoryTextObj()));
+            inventory.Add("PinkGem", new TreasureInventoryItem("Pink Gem", 2, getNextInventoryTextObj()));
+        } 
         else {
             inventory.Add("TreasureChest", new TreasureInventoryItem("Treasure Chest", 10, getNextInventoryTextObj()));
             inventory.Add("GreenGem", new TreasureInventoryItem("Green Gem", 1, getNextInventoryTextObj()));
