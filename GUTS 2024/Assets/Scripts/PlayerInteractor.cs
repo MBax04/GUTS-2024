@@ -41,6 +41,11 @@ public class PlayerInteractor : MonoBehaviour
         {
             Debug.Log("Health Potion");
         }
+        if (collision.gameObject.CompareTag("Torch"))
+        {
+            GameObject.Find("Player").GetComponent<PlayerTorch>().torchRecharge(60);
+            collision.gameObject.SetActive(false);
+        }
     }
 
 

@@ -9,6 +9,8 @@ TagManager:
   - Gem
   - Pit
   - Treasure Inventory Canvas
+  - Enemy
+  - Torch
   layers:
   - Default
   - TransparentFX
