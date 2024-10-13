@@ -6,8 +6,8 @@ using TMPro;
 
 public class PlayerTorch : MonoBehaviour
 {
-    Light2D playerLight;
-    float torchStartTime = -1;
+    public Light2D playerLight;
+    public float torchStartTime = -1;
     float currentTorchMaxTime = -1;
     public TMP_Text timerLabel;
     
