@@ -46,30 +46,29 @@ public class TreasureInventory : MonoBehaviour
    
     public void UpdateList(string objectName)
     {
-        inventory[objectName].setQuantity(inventory[objectName].treasureTypeQuantity + 1);
         //untestes - maybe work maybe not so much
         if (inventory["TreasureChest"].treasureTypeQuantity == 10)
         {
             Debug.Log("Go to next level, max items found");
-            TreasureInventoryItem item = inventory[objectName];
-            if (item.treasureTypeQuantity < item.maximumQuantity)
+        }
+        TreasureInventoryItem item = inventory[objectName];
+        if (item.treasureTypeQuantity < item.maximumQuantity)
+        {
+            item.setQuantity(item.treasureTypeQuantity + 1);
+
+            Task inventoryTask = GameObject.Find("TaskListCanvas").GetComponent<TaskList>().tasks[0];
+
+            int inventoryMax = 0;
+            int inventoryContents = 0;
+            foreach ((String key, TreasureInventoryItem x) in inventory)
             {
-                item.setQuantity(item.treasureTypeQuantity + 1);
+                inventoryMax += x.maximumQuantity;
+                inventoryContents += x.treasureTypeQuantity;
+            }
 
-                Task inventoryTask = GameObject.Find("TaskListCanvas").GetComponent<TaskList>().tasks[0];
-
-                int inventoryMax = 0;
-                int inventoryContents = 0;
-                foreach ((String key, TreasureInventoryItem x) in inventory)
-                {
-                    inventoryMax += x.maximumQuantity;
-                    inventoryContents += x.treasureTypeQuantity;
-                }
-
-                if (inventoryMax > 0)
-                {
-                    inventoryTask.setCompletedness((float)inventoryContents / (float)inventoryMax);
-                }
+            if (inventoryMax > 0)
+            {
+                inventoryTask.setCompletedness((float)inventoryContents / (float)inventoryMax);
             }
         }
     }
