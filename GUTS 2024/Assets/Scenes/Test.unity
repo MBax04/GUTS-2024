@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.03
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 038b925c00000000111a0794ed45710aa150229093af699ced45710aa150229079f4e4c3
@@ -1473,7 +1473,7 @@ GameObject:
   - component: {fileID: 725613327}
   m_Layer: 0
   m_Name: Pit
-  m_TagString: Pit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

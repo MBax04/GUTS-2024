@@ -94,11 +94,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7971498941053277742}
   - component: {fileID: 7812885332700529347}
+  - component: {fileID: 2563822648241141287}
   - component: {fileID: 7848130891431264690}
   - component: {fileID: 7614495223890357900}
   - component: {fileID: 7715053415730945796}
   - component: {fileID: 3126911876716187036}
-  - component: {fileID: 7704472781371547875}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -121,7 +121,6 @@ Transform:
   m_Children:
   - {fileID: 7221494895302272031}
   - {fileID: 425251878144187946}
-  - {fileID: 5099943797570852319}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7812885332700529347
@@ -164,10 +163,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 185045347
   m_SortingLayer: 5
-  m_SortingLayerID: -1670795373
-  m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 958428866, guid: e9d39969c52275945858125df2d00d1d, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -178,6 +175,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &2563822648241141287
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965682937861333447}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!114 &7848130891431264690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,8 +256,6 @@ Rigidbody2D:
   m_Constraints: 0
 --- !u!114 &7715053415730945796
 MonoBehaviour:
---- !u!70 &7704472781371547875
-CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -254,34 +284,6 @@ MonoBehaviour:
   attackRange: 0.8
   spriteRenderer: {fileID: 2315242774667589506}
 --- !u!1 &8530174506053796344
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3}
-  m_Size: {x: 0.4, y: 0.25}
-  m_Direction: 1
---- !u!1 &8784071253898081811
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -291,8 +293,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7221494895302272031}
   - component: {fileID: 7021347418039417425}
-  - component: {fileID: 5099943797570852319}
-  - component: {fileID: 4601602789344011421}
   m_Layer: 0
   m_Name: SpotLight
   m_TagString: Untagged
@@ -301,14 +301,12 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7221494895302272031
---- !u!4 &5099943797570852319
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8530174506053796344}
-  m_GameObject: {fileID: 8784071253898081811}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -318,14 +316,12 @@ Transform:
   m_Father: {fileID: 7971498941053277742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7021347418039417425
---- !u!114 &4601602789344011421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8530174506053796344}
-  m_GameObject: {fileID: 8784071253898081811}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -340,7 +336,6 @@ MonoBehaviour:
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000027e49e3d4115ee2ae5d7519375cbd63a6391070bb31f7a89896618ae
-  m_ApplyToSortingLayers: 038b925c00000000111a0794ed45710aa150229093af699ced45710aa150229079f4e4c3
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
