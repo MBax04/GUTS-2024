@@ -77,6 +77,11 @@ public class PlayerInteractor : MonoBehaviour
             }
             Debug.Log("Teleport");
         }
+        if (collision.gameObject.CompareTag("Torch"))
+        {
+            collision.gameObject.SetActive(false);
+            GameObject.Find("Player").GetComponent<PlayerTorch>().torchRecharge(60);
+        }
     }
 
     public void Death()
