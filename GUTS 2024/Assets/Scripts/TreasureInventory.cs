@@ -38,7 +38,7 @@ public class TreasureInventory : MonoBehaviour
         inventory[objectName].setQuantity(inventory[objectName].treasureTypeQuantity + 1);
         //untestes - maybe work maybe not so much
         if (inventory["TreasureChest"].treasureTypeQuantity==10){
-            Debug.Log("Go to next level, max items found")
+            Debug.Log("Go to next level, max items found");
         }
     }
 }
