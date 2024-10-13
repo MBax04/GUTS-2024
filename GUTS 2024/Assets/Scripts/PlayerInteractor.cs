@@ -43,8 +43,8 @@ public class PlayerInteractor : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Torch"))
         {
-            GameObject.Find("Player").GetComponent<PlayerTorch>().torchRecharge(60);
             collision.gameObject.SetActive(false);
+            GameObject.Find("Player").GetComponent<PlayerTorch>().torchRecharge(60);
         }
     }
 

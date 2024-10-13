@@ -20,7 +20,7 @@ public class PlayerTorch : MonoBehaviour
 
     public void torchRecharge(float torchMaxTime = 10) {
         torchStartTime = Time.realtimeSinceStartup;
-        currentTorchMaxTime += torchMaxTime;
+        currentTorchMaxTime = torchMaxTime;
         playerLight.pointLightInnerRadius = 3;
         playerLight.pointLightOuterRadius = 8;
     }
@@ -40,6 +40,7 @@ public class PlayerTorch : MonoBehaviour
                 playerLight.pointLightInnerRadius = 3f * (timeLeft / 5f);
                 playerLight.pointLightOuterRadius = (4f * (timeLeft / 5f)) + 4;
             } else if (timeLeft <= 0) {
+                timerLabel.SetText("");
                 playerLight.pointLightInnerRadius = 0;
                 playerLight.pointLightOuterRadius = 4;
                 torchStartTime = -1; // Indicates torch not currently working
