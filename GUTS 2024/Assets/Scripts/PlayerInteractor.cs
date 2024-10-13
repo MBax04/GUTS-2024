@@ -43,8 +43,27 @@ public class PlayerInteractor : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Teleport"))
         {
-            transform.Translate(-5,0,0);
-
+            if (transform.position == (-27,88266937,0)){
+                transform.position = new Vector3(-9.7, -27.3, 0);
+            };
+            else if (transform.position == (24.2,30.8,0)){
+                transform.position = new Vector3(-9.7,-27.3,0);
+            }
+            else if (transform.position == (-9.7,-27.3,0)){
+                transform.position = new Vector3(-27,8266937,0);
+            }
+            else if (transform.position == (-88,-44,0)){
+                transform.position = new Vector3(11,110.6,0);
+            }
+            else if (transform.position == (-33.8,-53.5,0)){
+                transform.position = new Vector3(65.2,-51.8,0);            
+            }
+            else if (transform.position == (11,-110.6,0)){
+                transform.position = new Vector3(-33.8,-53,5,0);
+            }
+            else if (transform.position == (65.2,-51.8,0)){
+                transform.position = new Vector3(11,-110.6,0);
+            }
             Debug.Log("Teleport");
         }
     }
