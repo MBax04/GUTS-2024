@@ -10,6 +10,10 @@ public class PlayerCombat : MonoBehaviour
     public RawImage heart2;
     public RawImage heart3;
     private RawImage[] hearts;
+    private Collider2D[] EnemyColliders;
+    public float attackRange;
+    public SpriteRenderer spriteRenderer;
+    private bool canAttack = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +26,35 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && canAttack)
+        {
+            Attack();
+        }
+    }
+
+    private void Attack()
+    {
+        spriteRenderer.enabled = true;
+        canAttack = false;
+        EnemyColliders = Physics2D.OverlapCircleAll(this.transform.position, attackRange);
+
+        for (int i = 0; i < EnemyColliders.Length; i++)
+        {
+            if (EnemyColliders[i].CompareTag("Enemy"))
+            {
+                EnemyColliders[i].gameObject.SetActive(false);
+            }
+        }
+        StartCoroutine(AttackWait());
+
+
+        IEnumerator AttackWait()
+        {
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            canAttack = true;
+        }
     }
 
     public void updateHearts() 
