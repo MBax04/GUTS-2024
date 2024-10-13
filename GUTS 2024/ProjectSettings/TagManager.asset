@@ -5,10 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Health Potion
+  - Treasure
   - Treasure Chest
   - Gem
   - Pit
-  - Treasure Inventory Canvas
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -47,26 +48,23 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Pit
-    uniqueID: 1033823271
+    uniqueID: 2740335653
     locked: 0
   - name: Floor
-    uniqueID: 720246081
+    uniqueID: 1486599783
     locked: 0
-  - name: Walls
-    uniqueID: 2471614437
+  - name: Wall
+    uniqueID: 1420724689
     locked: 0
   - name: Deco Under
-    uniqueID: 987155317
+    uniqueID: 1618848229
     locked: 0
   - name: Player
-    uniqueID: 185045347
+    uniqueID: 103548057
     locked: 0
   - name: Deco Over
-    uniqueID: 2306482099
+    uniqueID: 1402134737
     locked: 0
   - name: UI
-    uniqueID: 2920834697
-    locked: 0
-  - name: UI2
-    uniqueID: 248878921
+    uniqueID: 1885169817
     locked: 0

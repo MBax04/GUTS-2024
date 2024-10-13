@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 185045347
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -135,8 +135,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d353ad4738eb1949bc41b21b4bdeaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 7812885332700529347}
   speed: 0
   maxSpeed: 6
+  spriteUp: {fileID: -320136536, guid: e9d39969c52275945858125df2d00d1d, type: 3}
+  spriteDown: {fileID: 686463008, guid: e9d39969c52275945858125df2d00d1d, type: 3}
+  spriteLeft: {fileID: 1308802971, guid: e9d39969c52275945858125df2d00d1d, type: 3}
+  spriteRight: {fileID: 775189571, guid: e9d39969c52275945858125df2d00d1d, type: 3}
   acceleration: 4
   decceleration: 4
   frictionAmount: 0.15

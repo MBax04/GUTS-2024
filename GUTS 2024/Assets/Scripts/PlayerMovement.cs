@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+//using Math;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Attributes")]
     private Rigidbody2D rb;
+
+    public SpriteRenderer spriteRenderer;
 
     [Header("Movement")]
     [SerializeField] private float speed;
@@ -19,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
     private float stopY;
     private float stopSpeedX;
     private float stopSpeedY;
+
+    public Sprite spriteUp;
+    public Sprite spriteDown;
+    public Sprite spriteLeft;
+    public Sprite spriteRight;
 
     [SerializeField] private float acceleration;
     [SerializeField] private float decceleration;
@@ -76,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Friction();
+        FindDirection();
     }
 
 
@@ -165,5 +174,25 @@ public class PlayerMovement : MonoBehaviour
         frictionY = Mathf.Min(Mathf.Abs(rb.velocity.y), frictionAmount);
         frictionY *= Mathf.Sign(rb.velocity.y);
         rb.AddForce(Vector2.up * -frictionY, ForceMode2D.Impulse);
+    }
+
+    private void FindDirection(){
+        if(Math.Abs(rb.velocity.x)> Math.Abs(rb.velocity.y)){
+            if(rb.velocity.x > 0){
+                spriteRenderer.sprite = spriteRight;
+            }
+            else{
+                spriteRenderer.sprite = spriteLeft;
+            }
+        }
+        else{
+            if(rb.velocity.y < 0){
+                spriteRenderer.sprite = spriteDown;
+            }
+            else{
+                spriteRenderer.sprite = spriteUp;
+            }
+        }
+        
     }
 }
