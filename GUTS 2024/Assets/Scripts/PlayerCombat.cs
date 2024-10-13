@@ -29,14 +29,14 @@ public class PlayerCombat : MonoBehaviour
     {
         for (int i=0; i < hearts.Length; i++) {
             RawImage heart = hearts[i];
-            if (i <= lives) heart.texture = Resources.Load<Texture>("UI Assets/Heart");
+            if (i < lives) heart.texture = Resources.Load<Texture>("UI Assets/Heart");
             else heart.texture = Resources.Load<Texture>("UI Assets/BrokenHeart");
         }
     }
 
     public void LoseLive()
-    {
-        lives--;
+    {   
+        if (lives > 0) lives--;
         Debug.Log("Live Lost" + lives);
         if (lives <= 0)
         {
@@ -51,12 +51,11 @@ public class PlayerCombat : MonoBehaviour
         {
             lives++;
         }
-        Debug.Log("Healed" + lives);
+        updateHearts();
     }
 
     public void Die()
     {
-        Debug.Log("Dead");
         this.transform.position = new Vector3(0,0,0);
     }
 }
