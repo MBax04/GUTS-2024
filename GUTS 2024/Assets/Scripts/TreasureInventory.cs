@@ -35,5 +35,16 @@ public class TreasureInventory : MonoBehaviour
     public void UpdateList(string objectName)
     {
         inventory[objectName].setQuantity(inventory[objectName].treasureTypeQuantity + 1);
+        Task inventoryTask = GameObject.Find("TaskListCanvas").GetComponent<TaskList>().tasks[0];
+        
+        int inventoryMax = 0;
+        int inventoryContents = 0;
+        foreach ((String key, TreasureInventoryItem item) in inventory) {
+            inventoryMax += item.maximumQuantity;
+            inventoryContents += item.treasureTypeQuantity;
+        }
+
+        if (inventoryMax > 0)
+        inventoryTask.setCompletedness((float) inventoryContents / (float) inventoryMax);
     }
 }

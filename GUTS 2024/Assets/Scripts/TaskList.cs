@@ -8,6 +8,7 @@ public class TaskList : MonoBehaviour
 {
     public List<Task> tasks = new List<Task>();
     private int taskCount = 0;
+    public int level = 1;
 
     public void addTask(Task task){
         if (taskCount < 4) {
@@ -51,8 +52,9 @@ public class TaskList : MonoBehaviour
         task3indicator.texture = Resources.Load<Texture>("UI Assets/transparent");
         task4indicator.texture = Resources.Load<Texture>("UI Assets/transparent");
 
-        addTask(new Task("Collect all treasure", 0.4f));
-        addTask(new Task("Restore sanity", 1f));
+        if (level == 1) {
+            addTask(new Task("Collect all treasure", 0.0f));
+        }
     }
 
     // Update is called once per frame
