@@ -53,20 +53,17 @@ TagManager:
     uniqueID: 720246081
     locked: 0
   - name: Walls
-    uniqueID: 2471614437
+    uniqueID: 175195629
     locked: 0
   - name: Deco Under
-    uniqueID: 987155317
+    uniqueID: 2418167969
     locked: 0
   - name: Player
     uniqueID: 185045347
     locked: 0
   - name: Deco Over
-    uniqueID: 2306482099
+    uniqueID: 2418167969
     locked: 0
   - name: UI
-    uniqueID: 2920834697
-    locked: 0
-  - name: UI2
-    uniqueID: 248878921
+    uniqueID: 175195629
     locked: 0
