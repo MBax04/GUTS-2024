@@ -1,21 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour
 {
     private int lives = 3;
+    public RawImage heart1;
+    public RawImage heart2;
+    public RawImage heart3;
+    private RawImage[] hearts;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        RawImage[] _hearts = new RawImage[] {heart1, heart2, heart3};
+        hearts = _hearts; 
+        updateHearts();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void updateHearts() 
+    {
+        for (int i=0; i < hearts.Length; i++) {
+            RawImage heart = hearts[i];
+            if (i <= lives) heart.texture = Resources.Load<Texture>("UI Assets/Heart");
+            else heart.texture = Resources.Load<Texture>("UI Assets/BrokenHeart");
+        }
     }
 
     public void LoseLive()
@@ -26,6 +42,7 @@ public class PlayerCombat : MonoBehaviour
         {
             Die();
         }
+        updateHearts();
     }
 
     public void Die()
