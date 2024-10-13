@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TreasureInventory : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class TreasureInventory : MonoBehaviour
     public TMP_Text inventory4text;
 
     private TMP_Text[] inventoryTexts;
+
+    private PlayerInteractor playerInteractor = new PlayerInteractor();
 
     public TMP_Text getNextInventoryTextObj() {
         return inventoryTexts[inventory.Count];
@@ -30,10 +33,20 @@ public class TreasureInventory : MonoBehaviour
         inventory.Add("GreenGem", new TreasureInventoryItem("Green Gem", 1, getNextInventoryTextObj()));
         inventory.Add("BlueGem", new TreasureInventoryItem("Blue Gem", 50, getNextInventoryTextObj()));
         inventory.Add("RedGem", new TreasureInventoryItem("Red Gem", 10, getNextInventoryTextObj()));
+        //playerInteractor.setCanGoToNextLevel();
+        //playerInteractor.canGoToNextLevel = true;
+        //Debug.Log("set to true");
     }
 
     public void UpdateList(string objectName)
     {
         inventory[objectName].setQuantity(inventory[objectName].treasureTypeQuantity + 1);
+        if (inventory["TreasureChest"].treasureTypeQuantity==10){
+            Debug.Log("can go to next level, max items found. Find door");
+            playerInteractor.canGoToNextLevel = true;
+            SceneManager.LoadScene(2);
+        }
+        //playerInteractor.setCanGoToNextLevel(true);
+    
     }
 }

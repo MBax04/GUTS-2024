@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteractor : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class PlayerInteractor : MonoBehaviour
     private GameObject treasureInventory;
     private TreasureInventory treasureInventoryScript;
 
+    public bool canGoToNextLevel = true;
+
+    //public PlayerInteractor(bool canGoToNextLevel){
+       // this.canGoToNextLevel = canGoToNextLevel;
+    //}
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +26,7 @@ public class PlayerInteractor : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         treasureInventory = GameObject.FindGameObjectWithTag("Treasure Inventory Canvas");
         treasureInventoryScript = treasureInventory.GetComponent<TreasureInventory>();
+        //canGoToNextLevel = false;
 
     }
 
@@ -47,14 +55,23 @@ public class PlayerInteractor : MonoBehaviour
             GameObject.Find("Player").GetComponent<PlayerTorch>().torchRecharge(60);
         }
         if (collision.gameObject.CompareTag("Door")){
+            //if(canGoToNextLevel){
+                //Debug.Log("door shoudld take player to next level yay");
+            //}
+            //else{
+                //Debug.Log("door is lock as player has not met reasure quota");
+            //}
             Debug.Log("door shoudld take player to next level yay");
+            SceneManager.LoadScene(2);
         }
     }
 
-
-
-
-
+    public void setCanGoToNextLevel(){
+        this.canGoToNextLevel = true;
+    }
+    public bool getCanGoToNextLevel(){
+        return canGoToNextLevel;
+    }
 
     public void Death()
     {
