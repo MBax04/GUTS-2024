@@ -25,13 +25,17 @@ public class TreasureInventory : MonoBehaviour
         TMP_Text[] _inventoryTexts = {inventory1text, inventory2text, inventory3text, inventory4text};
         inventoryTexts = _inventoryTexts;
 
+        foreach (TMP_Text text in inventoryTexts)
+            text.SetText("");
+
         // Initalise treasure types each with 0 quantity collected
         if (level == 1) {
             inventory.Add("TreasureChest", new TreasureInventoryItem("Treasure Chest", 5, getNextInventoryTextObj()));
             inventory.Add("OrangeGem", new TreasureInventoryItem("Orange Gem", 5, getNextInventoryTextObj()));
             inventory.Add("PurpleGem", new TreasureInventoryItem("Purple Gem", 5, getNextInventoryTextObj()));
             inventory.Add("RedGem", new TreasureInventoryItem("Red Gem", 5, getNextInventoryTextObj()));
-        } else {
+        } else if (level == 2) {} 
+        else {
             inventory.Add("TreasureChest", new TreasureInventoryItem("Treasure Chest", 10, getNextInventoryTextObj()));
             inventory.Add("GreenGem", new TreasureInventoryItem("Green Gem", 1, getNextInventoryTextObj()));
             inventory.Add("BlueGem", new TreasureInventoryItem("Blue Gem", 50, getNextInventoryTextObj()));

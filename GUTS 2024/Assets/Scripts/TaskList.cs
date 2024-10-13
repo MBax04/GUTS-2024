@@ -54,6 +54,8 @@ public class TaskList : MonoBehaviour
 
         if (level == 1) {
             addTask(new Task("Collect all treasure", 0.0f));
+        } else if (level == 2) {
+            addTask(new Task("Collect all treasure", 0.0f));
         }
     }
 
