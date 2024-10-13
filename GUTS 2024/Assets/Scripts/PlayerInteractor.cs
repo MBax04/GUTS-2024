@@ -46,6 +46,9 @@ public class PlayerInteractor : MonoBehaviour
             collision.gameObject.SetActive(false);
             GameObject.Find("Player").GetComponent<PlayerTorch>().torchRecharge(60);
         }
+        if (collision.gameObject.CompareTag("Door")){
+            Debug.Log("door shoudld take player to next level yay");
+        }
     }
 
 
