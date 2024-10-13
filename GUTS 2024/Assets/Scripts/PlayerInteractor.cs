@@ -41,12 +41,13 @@ public class PlayerInteractor : MonoBehaviour
         {
             Debug.Log("Health Potion");
         }
+        if (collision.gameObject.CompareTag("Teleport"))
+        {
+            transform.Translate(-5,0,0);
+
+            Debug.Log("Teleport");
+        }
     }
-
-
-
-
-
 
     public void Death()
     {

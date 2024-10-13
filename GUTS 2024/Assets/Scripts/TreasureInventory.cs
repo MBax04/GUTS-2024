@@ -32,8 +32,13 @@ public class TreasureInventory : MonoBehaviour
         inventory.Add("RedGem", new TreasureInventoryItem("Red Gem", 10, getNextInventoryTextObj()));
     }
 
+   
     public void UpdateList(string objectName)
     {
         inventory[objectName].setQuantity(inventory[objectName].treasureTypeQuantity + 1);
+        //untestes - maybe work maybe not so much
+        if (inventory["TreasureChest"].treasureTypeQuantity==10){
+            Debug.Log("Go to next level, max items found");
+        }
     }
 }
