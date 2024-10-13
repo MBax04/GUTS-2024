@@ -43,11 +43,6 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-
-
-
-
-
     public void Death()
     {
         this.transform.position = new Vector3(0, 0, 0);
