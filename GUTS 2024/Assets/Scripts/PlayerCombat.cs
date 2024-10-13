@@ -42,7 +42,8 @@ public class PlayerCombat : MonoBehaviour
         {
             if (EnemyColliders[i].CompareTag("Enemy"))
             {
-                EnemyColliders[i].gameObject.SetActive(false);
+                EnemyColliders[i].gameObject.GetComponent<EnemyPatrol>().Damage();
+                EnemyColliders[i].gameObject.GetComponent<EnemyPatrol>().setHuntingPlayer(false);
             }
         }
         StartCoroutine(AttackWait());

@@ -286,7 +286,7 @@ MonoBehaviour:
   heart1: {fileID: 0}
   heart2: {fileID: 0}
   heart3: {fileID: 0}
-  attackRange: 0.8
+  attackRange: 0.7
   spriteRenderer: {fileID: 2315242774667589506}
 --- !u!1 &8530174506053796344
 GameObject:

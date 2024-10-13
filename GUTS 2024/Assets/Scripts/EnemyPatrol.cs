@@ -10,6 +10,7 @@ public class EnemyPatrol : MonoBehaviour
     public float speed;
     public int count = 0;
     private bool huntingPlayer = true;
+    public int health;
 
     // Start is called before the first frame update
     void Start()
@@ -46,5 +47,14 @@ public class EnemyPatrol : MonoBehaviour
     public void setHuntingPlayer(bool newValue)
     {
         huntingPlayer = newValue;
+    }
+
+    public void Damage()
+    {
+        health--;
+        if (health <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }

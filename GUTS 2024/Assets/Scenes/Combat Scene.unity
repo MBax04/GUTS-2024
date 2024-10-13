@@ -2667,6 +2667,10 @@ PrefabInstance:
       propertyPath: heart3
       value: 
       objectReference: {fileID: 220769291}
+    - target: {fileID: 3126911876716187036, guid: 8b833d9a886db0b46859f9689c57c469, type: 3}
+      propertyPath: attackRange
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6965682937861333447, guid: 8b833d9a886db0b46859f9689c57c469, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7297,6 +7301,10 @@ PrefabInstance:
     - target: {fileID: 5261822340748648588, guid: d0e4a8d019158f94db91d431c046b3b0, type: 3}
       propertyPath: speed
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261822340748648588, guid: d0e4a8d019158f94db91d431c046b3b0, type: 3}
+      propertyPath: health
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5261822340748648588, guid: d0e4a8d019158f94db91d431c046b3b0, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -52354,6 +52362,10 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2943295124532973782, guid: ee30fbc0142919e4081cbe640f2ce461, type: 3}
+      propertyPath: health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943295124532973782, guid: ee30fbc0142919e4081cbe640f2ce461, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -53526,6 +53538,10 @@ PrefabInstance:
     - target: {fileID: 4602956512142133199, guid: e4cefbca6076a4c4a874a17ba08d049a, type: 3}
       propertyPath: speed
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4602956512142133199, guid: e4cefbca6076a4c4a874a17ba08d049a, type: 3}
+      propertyPath: health
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4602956512142133199, guid: e4cefbca6076a4c4a874a17ba08d049a, type: 3}
       propertyPath: patrolPoints.Array.size
