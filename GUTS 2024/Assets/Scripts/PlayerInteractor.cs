@@ -30,11 +30,13 @@ public class PlayerInteractor : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Treasure Chest"))
         {
+            collision.gameObject.SetActive(false);
             treasureInventoryScript.UpdateList("TreasureChest");
         }
         if (collision.gameObject.CompareTag("Gem"))
         {
             ObjectName = collision.gameObject.name;
+            collision.gameObject.SetActive(false);
             treasureInventoryScript.UpdateList(ObjectName.Split(" ")[0]);
         }
         if (collision.gameObject.CompareTag("Health Potion"))
