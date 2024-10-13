@@ -6,9 +6,11 @@ public class PlayerInteractor : MonoBehaviour
 {
     [Header("Attributes")]
     private Rigidbody2D rb;
+    private int targetIndex;
+    public GameObject[] telePoints;
 
+    private Vector3 teleportTarget;
     private string ObjectName;
-
     private GameObject treasureInventory;
     private TreasureInventory treasureInventoryScript;
     private Vector3 tempVec;
@@ -20,6 +22,8 @@ public class PlayerInteractor : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         treasureInventory = GameObject.FindGameObjectWithTag("Treasure Inventory Canvas");
         treasureInventoryScript = treasureInventory.GetComponent<TreasureInventory>();
+        List<GameObject> telePoints = new List<GameObject>();
+        teleportTarget = telePoints[0].transform.position;
 
     }
 
@@ -42,37 +46,34 @@ public class PlayerInteractor : MonoBehaviour
         {
             Debug.Log("Health Potion");
         }
-        if (collision.gameObject.CompareTag("Teleport"))
-        {
-            if (transform.position == new Vector3(-27,88266937,0)){
-                tempVec = new Vector3(-9, -27, 0);
-                transform.position = tempVec;
+        
+        if (collision.gameObject.CompareTag("Teleport")){
+            /*if(targetIndex < telePoints.Length){
+                Physics.IgnoreCollision(telePoints[targetIndex+1].GetComponent<Collider>(), GetComponent<Collider>(), true);
             }
-            else if (transform.position == new Vector3(24,30,0)){
-                tempVec = new Vector3(-9, -27, 0);
-                transform.position = tempVec;
+            else {
+                Physics.IgnoreCollision(telePoints[0].GetComponent<Collider>(), GetComponent<Collider>(), true);
+            }*/
+            transform.position=teleportTarget;
+            Debug.Log(teleportTarget);
+            /*if(targetIndex < telePoints.Length){
+                Physics.IgnoreCollision(telePoints[targetIndex+1].GetComponent<Collider>(), GetComponent<Collider>(), false);
             }
-            else if (transform.position == new Vector3(-9,-27,0)){
-                transform.position = new Vector3(-27,8266937,0);
-            }
-            else if (transform.position == new Vector3(-88,-44,0)){
-                transform.position = new Vector3(11,110,0);
-            }
-            else if (transform.position == new Vector3(-33,-53,0)){
-                transform.position = new Vector3(65,-51,0);            
-            }
-            else if (transform.position == new Vector3(11,-110,0)){
-                transform.position = new Vector3(-33,-53,0);
-            }
-            else if (transform.position == new Vector3(65,-51,0)){
-                transform.position = new Vector3(11,-110,0);
+            else {
+                Physics.IgnoreCollision(telePoints[0].GetComponent<Collider>(), GetComponent<Collider>(), false);
+            }*/
+            targetIndex++;
+            teleportTarget = telePoints[targetIndex].transform.position;
+            if (targetIndex >= telePoints.Length){
+                targetIndex=0;
             }
             Debug.Log("Teleport");
-        }
-    }
+        }}
+    
 
     public void Death()
     {
         this.transform.position = new Vector3(0, 0, 0);
     }
+
 }
