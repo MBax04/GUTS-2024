@@ -14,7 +14,7 @@ public class PlayerTorch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerLight = GameObject.Find("SpotLight").GetComponent<Light2D>();
+        timerLabel.SetText("");
         torchRecharge();
     }
 

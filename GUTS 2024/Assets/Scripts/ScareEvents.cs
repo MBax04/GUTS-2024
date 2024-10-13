@@ -9,13 +9,13 @@ using UnityEngine.Rendering.Universal;
 public class ScareEvents : MonoBehaviour
 {
     (string eventType, double eventProbability) [] eventProbabilities = new [] { 
-        // ("TEXT", 0.20),
-        // ("SOUND", 0.3),
-        // ("PHONE", 0.5),
-        ("LIGHTING_INTENSE", 0.5),
+        ("TEXT", 0.20),
+        ("SOUND", 0.3),
+        ("PHONE", 0.5),
+        ("LIGHTING_INTENSE", 0.75),
         ("LIGHTING_OFF", 1)
     };
-    string[] scaryStrings = {"THEY LIVE IN THE WALLS", "I'M WATCHING YOU", "BOOO", "THERE'S NOTHING BUT DEATH", "blood"};
+    string[] scaryStrings = {"THEY LIVE IN THE WALLS", "I'M WATCHING YOU", "BOOO", "blood"};
     string[] scarySounds = {"scream", "scream2", "modem"};
     float nextEventDue = -1;
     float disableEventInProgressAt = -1;
@@ -24,7 +24,7 @@ public class ScareEvents : MonoBehaviour
     public TMP_Text scareTextObj;
     private PlayerTorch playerTorch;
     void updateTimer() {
-        nextEventDue = Time.realtimeSinceStartup + Random.Range(5f, 10.0f);
+        nextEventDue = Time.realtimeSinceStartup + Random.Range(30f, 200.0f);
         Debug.Log("Next scare event set for: " + nextEventDue.ToString());
     }
     // Start is called before the first frame update
