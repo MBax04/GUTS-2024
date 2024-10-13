@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using TMPro;
 
 public class PlayerTorch : MonoBehaviour
 {
     Light2D playerLight;
     float torchStartTime = -1;
     float currentTorchMaxTime = -1;
+    public TMP_Text timerLabel;
     
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class PlayerTorch : MonoBehaviour
         if (torchStartTime >= 0) {
             float timeElapsed = Time.realtimeSinceStartup - torchStartTime;
             float timeLeft = currentTorchMaxTime - timeElapsed;
+            timerLabel.SetText("Torch "+ Mathf.Round(timeLeft)+"s");
 
             // Debug.Log(timeLeft);
             playerLight.intensity = 3f + Random.Range(-0.5f, 0.5f);
