@@ -9,6 +9,7 @@ TagManager:
   - Gem
   - Pit
   - Treasure Inventory Canvas
+  - Enemy
   - Torch
   - Teleport
   layers:
