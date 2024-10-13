@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteractor : MonoBehaviour
 {
@@ -28,6 +29,12 @@ public class PlayerInteractor : MonoBehaviour
         if (collision.gameObject.CompareTag("Pit"))
         {
             this.GetComponent<PlayerCombat>().Die();
+        }
+        if (collision.gameObject.CompareTag("Door"))
+        {
+            Debug.Log("swap to level 2");
+            SceneManager.LoadScene(2);
+            Debug.Log("swap to level 2..");
         }
         if (collision.gameObject.CompareTag("Treasure Chest"))
         {

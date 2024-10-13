@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TreasureInventory : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class TreasureInventory : MonoBehaviour
         if (inventory["TreasureChest"].treasureTypeQuantity == 10)
         {
             Debug.Log("Go to next level, max items found");
+            SceneManager.LoadScene(2);
             TreasureInventoryItem item = inventory[objectName];
             if (item.treasureTypeQuantity < item.maximumQuantity)
             {
