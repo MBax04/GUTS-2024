@@ -20,7 +20,6 @@ public class EnemyPatrol : MonoBehaviour
     void FixedUpdate()
     {
         if (Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 10 && huntingPlayer){
-            Debug.Log("Player Found");
             transform.position = Vector3.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, speed);
         }
         else

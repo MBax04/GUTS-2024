@@ -39,7 +39,8 @@ public class PlayerInteractor : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Health Potion"))
         {
-            Debug.Log("Health Potion");
+            collision.gameObject.SetActive(false);
+            this.GetComponent<PlayerCombat>().Heal();
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {

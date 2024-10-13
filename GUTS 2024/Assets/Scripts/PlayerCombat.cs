@@ -36,13 +36,22 @@ public class PlayerCombat : MonoBehaviour
 
     public void LoseLive()
     {
-        Debug.Log("Live Lost");
         lives--;
+        Debug.Log("Live Lost" + lives);
         if (lives <= 0)
         {
             Die();
         }
         updateHearts();
+    }
+
+    public void Heal()
+    {
+        if (lives < 3)
+        {
+            lives++;
+        }
+        Debug.Log("Healed" + lives);
     }
 
     public void Die()
