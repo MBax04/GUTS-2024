@@ -27,8 +27,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed);
 
-            if (Vector3.Distance(patrolPoints[targetPoint].position, transform.position) <= 0.2)
-            {
+            if (Vector3.Distance(patrolPoints[targetPoint].position, transform.position) <= 0.2) {
                 increaseTargetInt();
             }
         }
@@ -38,7 +37,7 @@ public class EnemyPatrol : MonoBehaviour
 
 
     void increaseTargetInt(){
-        huntingPlayer == true
+        huntingPlayer = true;
         targetPoint++;
         if (targetPoint==patrolPoints.Length){
             targetPoint = 0;

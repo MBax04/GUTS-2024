@@ -26,7 +26,7 @@ public class PlayerInteractor : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pit"))
         {
-            Death();
+            this.GetComponent<PlayerCombat>().Die();
         }
         if (collision.gameObject.CompareTag("Treasure Chest"))
         {
@@ -41,15 +41,10 @@ public class PlayerInteractor : MonoBehaviour
         {
             Debug.Log("Health Potion");
         }
-    }
-
-
-
-
-
-
-    public void Death()
-    {
-        this.transform.position = new Vector3(0, 0, 0);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<EnemyPatrol>().setHuntingPlayer(false);
+            this.GetComponent<PlayerCombat>().LoseLive();
+        }
     }
 }
