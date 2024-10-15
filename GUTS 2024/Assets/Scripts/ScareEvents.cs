@@ -15,21 +15,22 @@ public class ScareEvents : MonoBehaviour
         ("LIGHTING_INTENSE", 0.75),
         ("LIGHTING_OFF", 1)
     };
-    string[] scaryStrings = {"THEY LIVE IN THE WALLS", "I'M WATCHING YOU", "BOOO", "THERE'S NOTHING BUT DEATH", "blood"};
+    string[] scaryStrings = {"THEY LIVE IN THE WALLS", "I'M WATCHING YOU", "BOOO", "blood"};
     string[] scarySounds = {"scream", "scream2", "modem"};
     float nextEventDue = -1;
     float disableEventInProgressAt = -1;
     string eventInProgress = "NONE";
     public Canvas textScareCanvas;
     public TMP_Text scareTextObj;
-    public Light2D playerLight;
+    private PlayerTorch playerTorch;
     void updateTimer() {
-        nextEventDue = Time.realtimeSinceStartup + Random.Range(30f, 150.0f);
+        nextEventDue = Time.realtimeSinceStartup + Random.Range(30f, 200.0f);
         Debug.Log("Next scare event set for: " + nextEventDue.ToString());
     }
     // Start is called before the first frame update
     void Start()
     {
+        playerTorch = GameObject.Find("Player").GetComponent<PlayerTorch>();
         updateTimer();
     }
 
@@ -43,9 +44,10 @@ public class ScareEvents : MonoBehaviour
                     updateTimer();
                     disableEventInProgressAt = -1;
                     eventInProgress = "NONE";
-                } else if (eventInProgress.StartsWith("LIGHTING_") && playerLight != null) {
-                    playerLight.pointLightInnerRadius = 3;
-                    playerLight.intensity = 1;
+                } else if (eventInProgress.StartsWith("LIGHTING_") && playerTorch.playerLight != null) {
+                    playerTorch.playerLight.pointLightInnerRadius = 0;
+                    playerTorch.playerLight.pointLightOuterRadius = 4;
+                    playerTorch.playerLight.intensity = 3;
                     updateTimer();
                     disableEventInProgressAt = -1;
                     eventInProgress = "NONE";
@@ -66,14 +68,15 @@ public class ScareEvents : MonoBehaviour
                 disableEventInProgressAt = Time.realtimeSinceStartup + Random.Range(1f, 5.0f);
                 scareTextObj.SetText(scaryStrings[Random.Range(0, scaryStrings.Length)]);
                 textScareCanvas.enabled = true;
-            } else if (eventType.StartsWith("LIGHTING_") && playerLight != null) {
+            } else if (eventType.StartsWith("LIGHTING_") && playerTorch.torchStartTime < 0) {
                 eventInProgress = eventType;
                 if (eventType == "LIGHTING_INTENSE") {
-                    playerLight.pointLightInnerRadius = 8;
-                    playerLight.intensity = 65;
+                    playerTorch.playerLight.pointLightInnerRadius = 8;
+                    playerTorch.playerLight.pointLightOuterRadius = 8;
+                    playerTorch.playerLight.intensity = 65;
                 } else if (eventType == "LIGHTING_OFF") {
-                    playerLight.pointLightInnerRadius = 0;
-                    playerLight.intensity = 0;
+                    playerTorch.playerLight.pointLightInnerRadius = 0;
+                    playerTorch.playerLight.pointLightOuterRadius = 0;
                 }
                 disableEventInProgressAt = Time.realtimeSinceStartup + Random.Range(3f, 15.0f);
             } else if (eventType == "SOUND") {

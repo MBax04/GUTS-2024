@@ -9,6 +9,9 @@ TagManager:
   - Gem
   - Pit
   - Treasure Inventory Canvas
+  - Enemy
+  - Torch
+  - Teleport
   layers:
   - Default
   - TransparentFX
@@ -47,23 +50,26 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Pit
-    uniqueID: 1033823271
+    uniqueID: 3227146569
     locked: 0
   - name: Floor
-    uniqueID: 720246081
+    uniqueID: 3692545871
     locked: 0
   - name: Walls
-    uniqueID: 175195629
+    uniqueID: 1747785455
     locked: 0
   - name: Deco Under
-    uniqueID: 2418167969
+    uniqueID: 4153868079
     locked: 0
   - name: Player
-    uniqueID: 185045347
+    uniqueID: 3161744765
     locked: 0
   - name: Deco Over
-    uniqueID: 2418167969
+    uniqueID: 2055444031
     locked: 0
   - name: UI
-    uniqueID: 175195629
+    uniqueID: 2820599483
+    locked: 0
+  - name: UI2
+    uniqueID: 898040137
     locked: 0
